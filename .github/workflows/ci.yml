@@ -3,14 +3,15 @@ on:
   push:
     branches: [main]
     paths-ignore:
-      - 'README.md'
       - '**.md'
       - 'LICENSE'
   pull_request:
     paths-ignore:
-      - 'README.md'
       - '**.md'
       - 'LICENSE'
+  schedule:
+    - cron: '0 2 * * *'  
+  workflow_dispatch: 
 jobs:
   checks:
     runs-on: ubuntu-latest
