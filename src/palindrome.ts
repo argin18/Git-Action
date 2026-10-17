@@ -3,3 +3,9 @@ export function isPalindrome(str:string): boolean{
     const reversed = cleaned.split('').reverse().join('');
     return cleaned === reversed;   
 }
+// test 1
+// test 2
+// test 3
+// slow 1
+// slow 2
+// slow 3
