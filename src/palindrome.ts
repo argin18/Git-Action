@@ -4,3 +4,4 @@ export function isPalindrome(str:string): boolean{
     return cleaned === reversed;   
 }
 // test 1
+// test 2
