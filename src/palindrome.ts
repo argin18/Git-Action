@@ -5,3 +5,4 @@ export function isPalindrome(str:string): boolean{
 }
 // test 1
 // test 2
+// test 3
