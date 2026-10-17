@@ -8,3 +8,4 @@ export function isPalindrome(str:string): boolean{
 // test 3
 // slow 1
 // slow 2
+// slow 3
