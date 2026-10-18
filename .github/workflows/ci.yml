@@ -26,12 +26,11 @@ jobs:
         node-version: [22, 24]
     steps:
       - uses: actions/checkout@v6
-      - name: Secret demo
+      - name: Variable demo
         env: 
-          DEMO_TOKEN: ${{ secrets.DEMO_TOKEN }}
+          GREETING: ${{ vars.GREETING }}
         run: |
-          echo "Token is $DEMO_TOKEN"
-          echo "Reversed is $(echo $DEMO_TOKEN | rev)"
+          echo "Message is $GREETING"
       - uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
