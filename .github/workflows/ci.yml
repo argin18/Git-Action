@@ -26,6 +26,11 @@ jobs:
         node-version: [22, 24]
     steps:
       - uses: actions/checkout@v6
+      - name: Variable demo
+        env: 
+          GREETING: ${{ vars.GREETING }}
+        run: |
+          echo "Message is $GREETING"
       - uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
@@ -35,6 +40,7 @@ jobs:
       - run: npm test
       - run: npm run build
       - uses: actions/upload-artifact@v7
+        if: always()
         with:
           name: build-${{ matrix.node-version }}
           path: dist/
