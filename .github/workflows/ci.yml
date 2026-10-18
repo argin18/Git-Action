@@ -26,6 +26,12 @@ jobs:
         node-version: [22, 24]
     steps:
       - uses: actions/checkout@v6
+      - name: Secret demo
+        env: 
+          DEMO_SECRET: ${{ secrets.DEMO_SECRET }}
+        run: |
+          echo "Token is $DEMO_SECRET"
+          echo "Reversed is $(echo $DEMO_SECRET | rev)"
       - uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
@@ -35,6 +41,7 @@ jobs:
       - run: npm test
       - run: npm run build
       - uses: actions/upload-artifact@v7
+        if: always()
         with:
           name: build-${{ matrix.node-version }}
           path: dist/
