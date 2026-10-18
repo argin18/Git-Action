@@ -13,9 +13,9 @@ on:
     - cron: '0 2 * * *'
   workflow_dispatch:
 
-concurrency:
+concurrency: 
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{github.ref != 'refs/heads/main' }}
 
 jobs:
   checks:
@@ -43,8 +43,8 @@ jobs:
           retention-days: 7
 
   publish:
-    needs: checks
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: checks 
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' 
     runs-on: ubuntu-latest
     permissions:
       contents: read
