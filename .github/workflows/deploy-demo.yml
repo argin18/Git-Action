@@ -1,0 +1,11 @@
+name: Deploy demo
+on: workflow_dispatch
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Check the password exists
+        env:
+          PROD_PASSWORD: ${{ secrets.PROD_PASSWORD }}
+        run: echo "Password length is ${#PROD_PASSWORD}"
